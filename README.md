@@ -1,4 +1,4 @@
-# ServiceBus Entities Functionality
+# ServiceBus Entities Capabilities
 - Create Queues
 - List Queues
 - Get Queues
