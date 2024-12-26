@@ -8,8 +8,6 @@ namespace ServiceBusManagementConsole
 {
     internal class ManagementHelper
     {
-
-
         private ServiceBusAdministrationClient m_AdministrationClient;
 
         public ManagementHelper(string connectionString)
@@ -17,9 +15,7 @@ namespace ServiceBusManagementConsole
             // Create a ServiceBusAdministrationClientu using the specified credentials.
             m_AdministrationClient = new ServiceBusAdministrationClient(connectionString);
         }
-
-
-
+        
         public async Task CreateQueueAsync(string queueName)
         {
             Console.Write("Creating queue {0}...", queueName);
@@ -67,14 +63,11 @@ namespace ServiceBusManagementConsole
             Console.WriteLine($"    Status:                              { queueProperties.Status }");
         }
 
-
-
         public async Task CreateTopicAsync(string topicName)
         {
             Console.Write("Creating topic {0}...", topicName);
             var response = await m_AdministrationClient.CreateTopicAsync(topicName);
             var topicProperties = response.Value;
-
             Console.WriteLine("Done!");
         }
 
@@ -84,7 +77,6 @@ namespace ServiceBusManagementConsole
             Console.Write("Creating subscription {0}/subscriptions/{1}...", topicName, subscriptionName);
             var response = await m_AdministrationClient.CreateSubscriptionAsync(topicName, subscriptionName);
             var subscriptionProperties = response.Value;
-
             Console.WriteLine("Done!");
         }
 
@@ -104,15 +96,9 @@ namespace ServiceBusManagementConsole
             }
             Console.WriteLine("Done!");
         }
-
-
-
-
+        
         public CreateQueueOptions GetCreateQueueOptions(string queueName)
         {
-
-            
-
             return new CreateQueueOptions(queueName)
             {
                 RequiresDuplicateDetection = true,
@@ -123,7 +109,5 @@ namespace ServiceBusManagementConsole
                 DeadLetteringOnMessageExpiration = true
             };
         }
-
-
     }
 }
