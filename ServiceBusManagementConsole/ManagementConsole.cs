@@ -8,13 +8,9 @@ namespace ServiceBusManagementConsole
         // Enter a valid Service Bus connection string
         private static string ServiceBusConnectionString = "copy and paste the connection string of your service bus. This bad practise though, however just for test purpose";
 
-
         static async Task Main(string[] args)
         {
             ManagementHelper helper = new ManagementHelper(ServiceBusConnectionString);
-
-
-
 
             bool done = false;
             do
@@ -24,7 +20,6 @@ namespace ServiceBusManagementConsole
                 string commandLine = Console.ReadLine();
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 string[] commands = commandLine.Split(' ');
-
                 try
                 {
                     if (commands.Length > 0)
